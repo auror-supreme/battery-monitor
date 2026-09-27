@@ -1,0 +1,212 @@
+:root {
+    --bg-color: #0f172a; 
+    --card-bg: #1e293b;  
+    --header-bg: #0f172a;
+    --header-text: #f8fafc;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --border-color: #334155;
+    
+    --color-blue: #38bdf8; 
+    --color-orange: #fb923c;
+    --color-green: #4ade80;
+    
+    --btn-text: #38bdf8;
+    --btn-hover: #334155;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.dashboard-container {
+    width: 100%;
+    max-width: 900px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5); /* Stronger shadow for dark mode */
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.card-header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.card-header h2 {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+}
+
+.status-indicator {
+    font-size: 12px;
+    margin-right: 15px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background-color: #ef4444; 
+    color: white;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.status-indicator.online {
+    background-color: var(--color-green); 
+    color: #0f172a; /* Dark text for contrast against bright green */
+}
+
+.icon-expand {
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+    color: var(--text-secondary);
+}
+
+.icon-expand:hover {
+    opacity: 1;
+    color: var(--text-primary);
+}
+
+.chart-container {
+    padding: 20px;
+    height: 400px;
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+}
+
+.chart-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 41, 59, 0.85); /* Dark frosted glass */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: opacity 0.3s;
+}
+
+.chart-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.table-container {
+    padding: 0 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+th, td {
+    padding: 14px 10px;
+    text-align: left;
+    font-size: 14px;
+}
+
+th {
+    color: var(--text-secondary);
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-color);
+}
+
+td {
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 500;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+.dot {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.dot-blue { background-color: var(--color-blue); box-shadow: 0 0 8px rgba(56, 189, 248, 0.5); }
+.dot-orange { background-color: var(--color-orange); box-shadow: 0 0 8px rgba(251, 146, 60, 0.5); }
+.dot-green { background-color: var(--color-green); box-shadow: 0 0 8px rgba(74, 222, 128, 0.5); }
+
+.icon-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background-color: #334155; /* Default dark */
+    color: var(--text-primary);
+    border-radius: 50%;
+    font-size: 10px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+    padding: 16px 24px;
+    border-top: 1px solid var(--border-color);
+}
+
+.controls-hint {
+    display: none;
+}
+
+.download-btn {
+    background-color: transparent;
+    color: var(--btn-text);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.download-btn:hover {
+    background-color: var(--btn-hover);
+    border-color: var(--btn-text);
+}
